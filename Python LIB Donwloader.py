@@ -23,15 +23,14 @@ except:
     print('ERROR: Could not parse pypi HTML.')
     exit(1)
 
-# As a demo, I'm just going to install 5 random packages
-# If you *really* want to install them all, remove this
-# limit and the sampling of 'list(links)'
+
+# set ny limit you want
 install_limit = 100
 some_of_the_links = random.sample(list(links), install_limit)
 
 for link in some_of_the_links:
     pkg_name = link['href'].split('/')[-2]
-    cmd = f'pip install {pkg_name}'  # Replace with `conda` for Anaconda
+    cmd = f'pip install {pkg_name}' 
     print("=" * 30)
     print(f'NOW installing "{pkg_name}"')
     try:
